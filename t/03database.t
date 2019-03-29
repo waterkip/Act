@@ -31,13 +31,21 @@ for my $d (@databases) {
                             }
                           );
     ok($dbh, "$name connect");
-    cmp_ok($dbh->{pg_server_version}, '>=', 80000, "$name server version");
-    cmp_ok($dbh->{pg_lib_version}, '>=', 80000, "$name library version");
-    unless ($name eq 'wiki') {
-        my ($version, $required) = Act::Database::get_versions($dbh);
-        is ($version, $required, "$name schema is up to date");
+  SKIP: {
+        skip "No database connection",
+            $name eq 'wiki' ? 3 : 4,
+            unless $dbh;
+        cmp_ok($dbh->{pg_server_version}, '>=', 80000,
+               "$name server version");
+        cmp_ok($dbh->{pg_lib_version}, '>=', 80000,
+               "$name library version");
+        unless ($name eq 'wiki') {
+            my ($version, $required) = Act::Database::get_versions($dbh);
+            is ($version, $required,
+                "$name schema is up to date");
+        }
+        ok($dbh->disconnect, "$name disconnect");
     }
-    ok($dbh->disconnect, "$name disconnect");
 }
 
 __END__
