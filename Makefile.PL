@@ -39,9 +39,12 @@ requires(
 'Pod::POM' => 0, 
 'Plack'    => 0,
 'Plack::App::Cascade' => 0,
+'Plack::App::File' => 0,
 'Plack::Builder' => 0,
+'Plack::Middleware::Debug' => 0,
 'Plack::Middleware::Session::Cookie' => 0,
 'Plack::Request' => 0,
+'Plack::Response' => 0,
 'Plack::Util::Accessor' => 0,
 'Plack::Test' => 0,
 'Template' => 2.16, # Template::Constants
