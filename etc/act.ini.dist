@@ -1,6 +1,6 @@
 [general]
 
-conferences = demo nlpw2018
+conferences = demo
 cookie_name = act
 searchlimit = 20
 
@@ -20,6 +20,12 @@ user        = act
 passwd      = act123
 # Disable version checking, defaults to true
 #version_check = 0
+
+# The bcrypt section is only needed for older systems which haven't
+# fully upgraded to the newest password crypting logic
+#[bcrypt]
+#cost = 8
+#salt = foo
 
 [email]
 sendmail    = /usr/sbin/sendmail
