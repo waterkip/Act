@@ -100,6 +100,7 @@ sub to_app {
             map { $_ => $_ } %{ $Config->conferences };
         for my $uri (keys %confr) {
             my $conference = $confr{$uri};
+            my $conference_app = conference_app($conference);
             mount "/$uri/" => sub {
                 my $env = shift;
                 $env->{'act.conference'} = $conference;
@@ -131,6 +132,8 @@ sub to_app {
 }
 
 sub conference_app {
+    my $conference = shift;
+    my $path = catfile($Config->home, $conference, 'wwwdocs');
     my $static_app = builder {
         enable '+Act::Middleware::Auth';
         Act::Handler::Static->new->to_app;
@@ -156,7 +159,6 @@ sub conference_app {
             builder {
                 enable sub {
                     my ( $app ) = @_;
-
                     return sub {
                         my ( $env ) = @_;
 
@@ -166,9 +168,12 @@ sub conference_app {
                         my $res = $files->($env);
                         $res->[0] = 99 if $res->[0] == 404;
                         return $res;
-                    };
+                    }
                 };
-
+                enable sub {
+                    warn "Building a file app to '$path'";
+                    Plack::App::File->new(root => $path)->to_app;
+                }
             },
             builder {
                 enable '+Act::Middleware::Auth';
