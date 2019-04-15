@@ -290,7 +290,7 @@ my @html_templates = (
     },
 );
 use Test::More;
-plan tests => (@templates + @html_templates) + 13;
+plan tests => (@templates + @html_templates) + 14;
 
 require_ok('Act::Template');
 my $template = Act::Template->new;
