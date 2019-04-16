@@ -17,7 +17,7 @@ sub _photo_dir_path {
     if ($Config->general_dir_photos =~ /^\//) {
         return $Config->general_dir_photos;
     }
-    return catfile($Config->root, $Config->general_dir_photos);
+    return catfile($Config->general_root, $Config->general_dir_photos);
 }
 
 sub _resize_photo {
