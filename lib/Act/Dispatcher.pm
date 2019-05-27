@@ -145,7 +145,7 @@ sub conference_app {
             my $app = shift;
             sub {
                 for ( $_[0]->{'PATH_INFO'} ) {
-                    if ( s{^/?$}{index.html} || /\.html$/ || m!/LOGIN!) {
+                    if ( s{^/?$}{/index.html} || /\.html$/ || m!/LOGIN!) {
                         warn "$_[0]->{PATH_INFO} to static";
                         return $static_app->(@_);
                     }
