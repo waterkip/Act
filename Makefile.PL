@@ -72,6 +72,7 @@ requires(
     'lib::abs'                           => '0.93',
     'parent'                             => 0,
     'version'                            => 0,
+    'Starman'                            => 0,
 );
 
 test_requires(
