@@ -67,7 +67,7 @@ sub handler
         if ($Request{user}) { # 
             # compare passwords
             try {
-                $Request{user}->check_password(lc $fields->{oldpassword});
+                $Request{user}->check_password($fields->{oldpassword});
             }
             catch {
                 $ok = 0;
