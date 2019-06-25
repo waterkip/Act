@@ -8,6 +8,7 @@ use Plack::Response;
 use Act::Config ();
 use Try::Tiny;
 use Plack::Util::Accessor qw(private);
+use Encode qw(decode);
 
 sub call {
     my $self = shift;
@@ -67,16 +68,25 @@ sub _set_session {
     };
 }
 
+# TODO: (Refactoring) check_login should be a handler, not a middleware.
+# If it will be a handler, don't decode here as Act::Handler does this for you.
+#
+
+sub _decode {
+    return decode('UTF-8',shift,Encode::FB_CROAK);
+}
+
 sub check_login {
     my $self = shift;
     my $req = shift;
 
     my $params = $req->parameters;
 
-    my $login   = $params->get('login') // $params->get('credential_0');
-    my $sent_pw = $params->get('password') // $params->get('credential_1');
-    my $remember_me = $params->get('remember_me');
-    my $dest    = $params->get('destination');
+    my $login = _decode($params->get('login') // $params->get('credential_0'));
+    my $sent_pw
+        = _decode($params->get('password') // $params->get('credential_1'));
+    my $remember_me = _decode($params->get('remember_me'));
+    my $dest        = _decode($params->get('destination'));
 
     # remove leading and trailing spaces
     for ($login, $sent_pw) {
