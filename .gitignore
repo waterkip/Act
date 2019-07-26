@@ -17,3 +17,11 @@ var
 /conferences/*
 !conferences/demo/
 !conferences/README.md
+
+## Build artifacts
+# dzil intermediate
+/.build
+# dzil build result
+/Act-*
+# Test coverage results
+/cover_db
