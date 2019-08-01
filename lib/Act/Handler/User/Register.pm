@@ -139,6 +139,7 @@ sub handler {
                     clear_passwd => $clear_passwd,
                     %$fields
                 );
+                $Request{user} = $user;
                 $template->process('user/added');
                 return;
             }
