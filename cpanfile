@@ -40,6 +40,7 @@ requires 'List::Pairwise'             => 0;
 requires 'Locale::Maketext::Lexicon'  => 0;
 requires 'Module::Pluggable::Object'   => 0;
 requires 'Moo'                        => 0;
+requires 'MooX::Singleton'            => 0;
 requires 'Net::OpenID::Server'        => 0;
 requires 'Plack'                      => 0;
 requires 'Plack::App::Cascade'        => 0;
