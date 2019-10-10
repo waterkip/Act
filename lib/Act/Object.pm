@@ -6,7 +6,7 @@ use Act::Util qw(format_datetime_string);
 use Carp;
 use DBI qw(:sql_types);
 
-use constant DEBUG => !$^C && $Config->database_debug;
+use constant DEBUG => $ENV{ACT_DEBUG};
 use vars qw(@ISA @EXPORT );
 @ISA    = qw(Exporter);
 @EXPORT = qw(sql sql_prepare sql_exec);

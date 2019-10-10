@@ -186,12 +186,10 @@ my @Optional = qw(
 # salutations
 our $Nb_salutations = 4;
 
-# load configurations
-load_configs() unless $^C;
+sub load_configs {
+    my $self = shift;
 
-sub load_configs
-{
-    my $home = $ENV{ACTHOME} // $ENV{ACT_HOME};
+    my $home = shift // $ENV{ACTHOME} // $ENV{ACT_HOME};
     die "ACT_HOME environment variable isn't set\n" unless $home;
     $GlobalConfig = _init_config($home);
     %ConfConfigs = ();

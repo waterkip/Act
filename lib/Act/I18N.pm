@@ -7,20 +7,22 @@ use Locale::Maketext::Lexicon;
 
 use Act::Config;
 
-unless ($^C) {
-    Locale::Maketext::Lexicon->import({
-        '*' => [ Gettext => catfile($Config->home, 'po', '*.[pm]o'),
-                 Gettext => catfile($Config->home, 'po', '*', '*.[pm]o'),
-               ],
-        _auto   => 0,
-        _decode => 1,
-        _style  => 'gettext',
-    });
-}
-
 sub init
 {
     my $self = shift;
+
+    Act::Config->load_configs();
+
+    unless ($^C) {
+        Locale::Maketext::Lexicon->import({
+            '*' => [ Gettext => catfile($Config->home, 'po', '*.[pm]o'),
+                     Gettext => catfile($Config->home, 'po', '*', '*.[pm]o'),
+                   ],
+            _auto   => 0,
+            _decode => 1,
+            _style  => 'gettext',
+        });
+    }
     $self->SUPER::init();
     $self->fail_with('failure_handler');
 }

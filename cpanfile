@@ -65,3 +65,4 @@ requires 'XML::Atom' => '0.20';    # XML::Atom::Entry XML::Atom::Feed XML::Atom:
 requires 'parent'  => 0;
 requires 'version' => 0;
 requires 'Test::Lib' => 0;
+requires 'File::Spec::Functions' => 0;
