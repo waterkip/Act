@@ -109,7 +109,7 @@ sub handler {
                         map { "bio_$_" } keys %{ $Config->languages } ]
     );
 
-    my $request = %Request{r};
+    my $request = $Request{r};
 
     if ($request->body_parameters->{join}) {
         $fields = _update_user_information(
