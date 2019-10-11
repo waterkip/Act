@@ -324,7 +324,7 @@ sub get_config
         my $closed = !$ConfConfigs{$conf}->registration_open;
         # past conference's closing date
         unless ($closed) {
-            my $enddate = DateTime::Format::HTTP->parse_datetime($ConfConfigs{$conf}->talks_end_date);
+            my $enddate = Act::Util::format_datetime_string($ConfConfigs{$conf}->talks_end_date);
             $enddate->set_time_zone($ConfConfigs{$conf}->general_timezone);
             $closed = ( DateTime->now() > $enddate );
         }
