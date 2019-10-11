@@ -12,10 +12,10 @@ COPY cpanfile .
 RUN cpanm -n IPC::System::Simple \
     && cpanm --installdeps .
 
-COPY conferences /opt/acthome/conferences
 COPY wwwdocs     /opt/acthome/wwwdocs
 COPY templates   /opt/acthome/templates
 COPY po          /opt/acthome/po
+COPY conferences /opt/acthome/conferences
 COPY . .
 
 

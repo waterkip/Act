@@ -29,6 +29,7 @@ requires(
     'Email::Simple::Creator'             => 0,
     'Email::Valid'                       => 0,
     'Flickr::API'                        => 0,
+    'File::Spec::Functions'              => 0,
     'HTML::Entities'                     => 0,
     'HTML::TagCloud'                     => 0,
     'HTTP::Request::Common'              => 0,
@@ -78,7 +79,6 @@ test_requires(
     'Test::Lib'   => 0,
     'Test::More'  => '0.96',
     'Plack::Test' => 0,
-    'File::Spec::Functions' => 0,
 );
 
 auto_install();
