@@ -251,3 +251,8 @@ CREATE TABLE tags
     type          text NOT NULL,
     tagged_id     text NOT NULL
 );
+
+CREATE TABLE sessions (
+    id             CHAR(72) PRIMARY KEY,
+    session_data   TEXT
+)
