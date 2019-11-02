@@ -12,9 +12,6 @@ use Encode qw(encode);
 use Digest::MD5 qw(md5_hex);
 use Digest::SHA qw(sha512);
 use Carp;
-use Authen::Passphrase::BlowfishCrypt;
-use Authen::Passphrase;
-use Crypt::Eksblowfish::Bcrypt;
 use List::Util qw(first);
 use Try::Tiny;
 

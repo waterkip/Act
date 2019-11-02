@@ -3,7 +3,6 @@ requires "Authen::Passphrase" => "0";
 requires "Authen::Passphrase::BlowfishCrypt" => "0";
 requires "Carp" => "0";
 requires "Clone" => "0";
-requires "Crypt::Eksblowfish::Bcrypt" => "0";
 requires "DBD::Pg" => "3";
 requires "DBI" => "0";
 requires "DBIx::Class::Core" => "0";
