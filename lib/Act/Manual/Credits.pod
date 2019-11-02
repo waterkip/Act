@@ -146,7 +146,6 @@ conference...
   Enrico Sorcinelli
   Farley Balasuriya
   Gianni "dakkar" Cecarelli
-  Gianni Ceccarelli
   Graham Knop
   Gábor Szabó
   Harald Jörg
