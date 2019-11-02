@@ -52,7 +52,7 @@ software, and here's the result: Act is still breathing.
 
 =head1 The Name
 
-The name of the toolkit is Act, not ACT. 
+The name of the toolkit is Act, not ACT.
 
 Even if it looks like an acronym (inspired by the one of APL), it is
 more of an inspirational injunction to conference organizers to forget
@@ -70,20 +70,35 @@ conference...
 
 =head2 Code contributors
 
-  Sébastien Aperghis-Tramoni
-  Laurent Boivin
-  Gianni "dakkar" Cecarelli
-  Ilya Chesnokov
-  Elizabeth Cortell
-  Rob Hoelz
-  Harald Jörg
-  Thomas Klausner
-  Graham Knop
+  Alexandre Franke
+  Ann Barcomb
+  Arjen Laarhoven
+  Barbie
   Dagfinn Ilmari Mannsåker
+  Dan Wright
+  David Elbaz
+  David Rigaudiere
+  Dotan Dimet
+  Elbeho
+  Emmanuel Seyman
+  Gianni Ceccarelli
+  Graham Knop
+  Harald Jörg
+  Ilya Chesnokov
+  Joakim
+  Leon Brocard
+  Liz Cortell
+  Michal Wojciechowski
+  Ole Bendik Kvisberg
+  Olivier Mengué
+  Renee
+  Rob Hoelz
+  Sebastien Aperghis-Tramoni
+  Stefan Hornburg (Racke)
+  Sébastien Aperghis-Tramoni
   Tatsuhiko Miyagawa
+  Thomas Klausner
   Wesley Schwengle
-  Emanuel Seyman
-  Jesse Vincent
 
 =head2 Documentation contributors
 
@@ -109,40 +124,67 @@ conference...
 
 =head2 Bugs finders, translations, idea purveyors, and general good vibes
 
-  Sébastien Aperghis-Tramoni
-  Farley Balasuriya
-  Ann Barcomb
-  Tom Bloor
-  Jim Brandt
-  Luis Motta Campos
-  José Alves de Castro
-  Gianni "dakkar" Cecarelli
-  Paul Cochrane
-  Kurt DeMaagd
-  Jeremy Fluhmann
-  Anders Hellström
-  Theo van Hoesel
-  Claes Jakobsson
-  Jose Kahan
-  Maroš Kollár
-  Thomas Klausner
-  Roland Lammel
-  David Landgren
-  Daisuke Maki
-  Tatsuhiko Miyagawa
-  Jonas B. Nielsen
-  Salve J Nilsen
-  Hiroyuki Oyama
-  Todd Rinaldo
-  Dave Rolsky
-  Sawyer X
   Alberto Simões
-  Enrico Sorcinelli
-  Ricardo Signes
-  Patrick Spek
-  Gábor Szabó
-  Lars Thegler
+  Alexandre Franke
+  Anders Hellström
+  Ann Barcomb
+  Arjen Laarhoven
+  Barbie
+  Claes Jakobsson
+  Dagfinn Ilmari Mannsåker
+  Daisuke Maki
+  Dan Wright
   Daniel J. Wright
+  Dave Rolsky
+  David Elbaz
+  David Landgren
+  David Rigaudiere
+  Dotan Dimet
+  Elbeho
+  Elizabeth Cortell
+  Emmanuel Seyman
+  Enrico Sorcinelli
+  Farley Balasuriya
+  Gianni "dakkar" Cecarelli
+  Gianni Ceccarelli
+  Graham Knop
+  Gábor Szabó
+  Harald Jörg
+  Hiroyuki Oyama
+  Ilya Chesnokov
+  Jeremy Fluhmann
+  Jesse Vincent
+  Jim Brandt
+  Joakim
+  Jonas B. Nielsen
+  Jose Kahan
+  José Alves de Castro
+  Kurt DeMaagd
+  Lars Thegler
+  Laurent Boivin
+  Leon Brocard
+  Liz Cortell
+  Luis Motta Campos
+  Maroš Kollár
+  Michal Wojciechowski
+  Ole Bendik Kvisberg
+  Olivier Mengué
+  Patrick Spek
+  Paul Cochrane
+  Renee
+  Ricardo Signes
+  Rob Hoelz
+  Roland Lammel
+  Salve J Nilsen
+  Sawyer X
+  Stefan Hornburg (Racke)
+  Sébastien Aperghis-Tramoni
+  Tatsuhiko Miyagawa
+  Theo van Hoesel
+  Thomas Klausner
+  Todd Rinaldo
+  Tom Bloor
+  Wesley Schwengle
 
 =cut
 
