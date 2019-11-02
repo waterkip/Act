@@ -63,6 +63,7 @@ requires "Plack::Builder" => "0";
 requires "Plack::Component" => "0";
 requires "Plack::Middleware" => "0";
 requires "Plack::Middleware::Debug" => "0";
+requires "Plack::Middleware::ReverseProxy" => "0";
 requires "Plack::Request" => "0";
 requires "Plack::Response" => "0";
 requires "Plack::Session" => "0";
