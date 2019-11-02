@@ -47,6 +47,21 @@ my $form = Act::Form->new(
   }
 );
 
+# orgas can submit/edit talks anytime
+# regular users can submit new talks when submissions_open
+# and edit existing talks when edition_open or submission_open
+sub _talk_open_for_submission {
+    my ($user, $talk) = @_;
+    return 1 if $user->is_talks_admin;
+    return 1 if !$talk and $Config->talks_edition_open || $Config->talks_submissions_open;
+    if ($Config->talks_edition_open || $Config->talks_submissions_open
+        and $talk && $talk->user_id == $user->user_id)
+    {
+        return 1;
+    }
+    return 0;
+}
+
 sub handler {
 
     my $template = Act::Template::HTML->new();
@@ -76,22 +91,16 @@ sub handler {
                     tagged_id   => $talk->talk_id,
                 );
     }
-    # orgas can submit/edit talks anytime
-    # regular users can submit new talks when submissions_open
-    # and edit existing talks when edition_open or submission_open
-    #
-    unless ($Request{user}->is_talks_admin) {
-        unless ( ($talk && $talk->user_id == $Request{user}->user_id
-                        && ($Config->talks_edition_open || $Config->talks_submissions_open))
-                || (!$talk && $Config->talks_submissions_open ))
-        {
-            $Request{status} = 404;
-            return;
-        }
-    }
+
     # not registered!
-    return Act::Util::redirect(make_uri('register'))
-      unless $Request{user}->has_registered;
+    if (!$Request{user}->has_registered && !$Request{user}->is_talks_admin) {
+        return Act::Util::redirect(make_uri('register'))
+    }
+
+    if (!_talk_open_for_submission($Request{user}, $talk)) {
+        # TODO: Redirect to talk/closed?
+        return Act::Util::redirect(make_uri('register'))
+    }
 
     # automatically compute the return URL
     my $referer = $Request{r}->header_in('Referer');
