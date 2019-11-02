@@ -118,7 +118,6 @@ on 'test' => sub {
   requires "Exporter" => "0";
   requires "ExtUtils::MakeMaker" => "0";
   requires "File::Spec" => "0";
-  requires "File::Spec::Function" => "0";
   requires "Path::Tiny" => "0";
   requires "Plack::Session::Store" => "0";
   requires "Plack::Test" => "0";

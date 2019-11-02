@@ -2,7 +2,7 @@ use strict;
 use Act::Util;
 use DateTime::Locale;
 use Test::More qw(no_plan);
-use File::Spec::Function qw(catfile);
+use File::Spec::Functions qw(catfile);
 
 my @simple = qw(
     general_cookie_name
