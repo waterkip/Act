@@ -155,3 +155,7 @@ based on the mailhog image. This mailserver has webUI available on port
 http://localhost:8025 so you can see what kind of mails you have send. It uses
 a memory backend so all the mails are lost after a restart.
 
+Technical documentation about Act is available in the directory
+lib/Act/Manual.  The pod files can be nicely read in GitHub, and even
+more comfortably online from our demo server at
+https://act-test.plix.at/manual/Manual.html.
