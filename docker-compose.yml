@@ -30,8 +30,6 @@ services:
       - "./etc/act.ini:/opt/acthome/conf/act.ini"
   act-db:
     image: "postgres:11"
-    ports:
-      - "5432:5432"
     networks:
       - "default"
     environment:
@@ -60,8 +58,9 @@ services:
       - "./db/wiki/template.sql:/docker-entrypoint-initdb.d/00_init_db.sql"
   smtpd:
     image: mailhog/mailhog:v1.0.0
+    expose:
+      - "1025"
     ports:
-      - "1025:1025"
       - "8025:8025"
 
 volumes:
