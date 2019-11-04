@@ -7,7 +7,7 @@ use Act::Store::Database;
 sub new {
     my $class = shift;
     my $base = $class->SUPER::new(
-        dbh => Act::Store::Database->instance->connector->dbh,
+        get_dbh => sub { Act::Store::Database->instance->connector->dbh },
     );
 }
 
