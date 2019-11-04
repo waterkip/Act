@@ -103,9 +103,7 @@ so you can easily add and edit your conference files.
 To make loading the databases a bit easier on the Docker side I've chosen to
 create two database servers, one for Act itself and the other for the wiki.
 Both can be accessed by the `act` user with the password `act123`. The wiki
-database is named `act_wiki` and the act database is named `act`. The databases
-can be accessed from your local machine by using `psql -U act -h localhost` for
-act itself and `psql -U act -h localhost -p 5433` for the wiki.
+database is named `act_wiki` and the act database is named `act`.
 
 Act itself will do version checking on the database schema, for Docker I've
 chosen to disable this in the act.ini file (for now). You can set the
@@ -127,6 +125,13 @@ xargs -r docker container rm
 docker volume ls | grep act | grep db | awk '{print $NF}' | \
 xargs -r docker volume rm
 ```
+
+### Local access
+
+The databases can be accessed from your local machine if you use an override
+(found in `docker-compose.override.dist`) by using `psql -U act -h localhost`
+for act itself and `psql -U act -h localhost -p 5433` for the wiki.
+Other port numbers can be used, but is left as an exercise for the reader.
 
 ## Plack
 
