@@ -1,6 +1,7 @@
 use strict;
 package Act::Database;
-  
+use Try::Tiny;
+
 my @SCHEMA_UPDATES = (
 #1
   "create table schema (
@@ -94,19 +95,20 @@ my @SCHEMA_UPDATES = (
 );
 
 # returns ( current database schema version, required version )
-sub get_versions
-{
+sub get_versions {
     my $dbh = shift;
+
     my $version;
-    eval {
+    try {
         $version = $dbh->selectrow_array('SELECT current_version FROM schema');
-    };
-    if ($@) {
+    }
+    catch {
         $dbh->rollback;
         die "Failed to retrieve the schema version:\n",
             "DB error:   '", $dbh->errstr, "'\n",
-            "eval error: '$@'";
-    }
+            "eval error: '$_'\n";
+    };
+
     defined $version
         or  warn "No database schema version found.\n";
     $version ||= 0;
