@@ -5,7 +5,6 @@ use Test::More qw(no_plan);
 use File::Spec::Functions qw(catfile);
 
 my @simple = qw(
-    general_cookie_name
     general_dir_photos
     general_max_imgsize
     general_searchlimit

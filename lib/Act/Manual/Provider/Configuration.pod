@@ -13,7 +13,6 @@ sections.
 
   [general]
   conferences = tpc-2018-glasgow lpw2019 ....
-  cookie_name = act
   searchlimit = 20
   dir_photos  = photos
   dir_ttc     = $(home)/var
@@ -25,10 +24,6 @@ sections.
 =item C<conferences>
 
 A space-separated list of conferences served by this installation.
-
-=item C<cookie_name>
-
-FIXME: Unused in the current codebase.  To be deleted in a cleanup commit.
 
 =item C<searchlimit>
 
@@ -113,16 +108,10 @@ F<bin/dbbackup>.
 =head2 Section C<email>
 
   [email]
-  sendmail    = /usr/sbin/sendmail
   test        = 0
   sender_address = root@localhost
 
 =over
-
-=item C<sendmail>
-
-Path to the sendmail binary. Happily ignored by the current codebase,
-which uses SMTP.  Might be re-activated soon(ish).
 
 =item C<test>
 
