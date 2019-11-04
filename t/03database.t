@@ -8,13 +8,16 @@ use Test::MockObject;
 
 require_ok('Act::Database');
 
+my $required_version = Act::Database::required_version();
+is($required_version, 12, "12 db upgrades found");
+
 {
     my $warn;
     local $SIG{__WARN__} = sub { $warn = shift };
     my $dbh = Test::MockObject->new();
     $dbh->mock('selectrow_array' => sub { return undef });
     my @found = Act::Database::get_versions($dbh);
-    cmp_deeply(\@found, [0, 12], "undef returns 0 as a version");
+    cmp_deeply(\@found, [0, $required_version], "undef returns 0 as a version");
     is($warn, "No database schema version found.\n", ".. and correct warning found");
 }
 
@@ -22,7 +25,7 @@ require_ok('Act::Database');
     my $dbh = Test::MockObject->new();
     $dbh->mock('selectrow_array' => sub { return 12 });
     my @found = Act::Database::get_versions($dbh);
-    cmp_deeply(\@found, [12, 12], "12 returns 12");
+    cmp_deeply(\@found, [12, $required_version], "12 returns 12");
 }
 
 {
