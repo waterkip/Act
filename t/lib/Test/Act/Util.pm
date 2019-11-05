@@ -5,20 +5,24 @@ use Act::Talk;
 use Act::User;
 use Act::Event;
 
-unless ($^C) {
-$Request{dbh} = DBI->connect(
-    $Config->database_test_dsn,
-    $Config->database_test_user,
-    $Config->database_test_passwd,
-    { AutoCommit => 0,
-      pg_enable_utf8 => 1,
-    }
-) or die "can't connect to database: " . $DBI::errstr;
+use Test::More;
 
-# clean up before
-$Request{dbh}->do("DELETE FROM $_")
-    for qw(events invoice_num invoices news_items news order_items orders
-           participations rights user_talks talks users bios tags);
+if ($Config->database_test_dsn) {
+    $Request{dbh} = DBI->connect(
+        $Config->database_test_dsn,
+        $Config->database_test_user,
+        $Config->database_test_passwd,
+        { AutoCommit => 0,
+          pg_enable_utf8 => 1,
+        }
+    );
+    ok($Request{dbh}, "We have a test database");
+    $Request{dbh}->do("DELETE FROM $_")
+        for qw(events invoice_num invoices news_items news order_items orders
+               participations rights user_talks talks users bios tags);
+}
+else {
+    plan skip_all => "Unable to run tests without a DB";
 }
 
 # fill the database with simple default data
@@ -117,8 +121,10 @@ sub db_add_events {
 
 
 END {
-    $Request{dbh}->commit;
-    $Request{dbh}->disconnect;
+    if ($Request{dbh}) {
+        $Request{dbh}->commit;
+        $Request{dbh}->disconnect;
+    }
 }
 
 1;
