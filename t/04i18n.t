@@ -1,9 +1,12 @@
 #!perl -w
-
 use strict;
-use Act::Config;
+use warnings;
 
 use Test::More;
+use Test::Lib;
+
+use Act::Config;
+Act::Config->load_configs('t');
 
 # set up some test lexicons
 package Act::I18N::en;
