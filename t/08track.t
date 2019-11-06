@@ -6,8 +6,6 @@ use Test::Lib;
 use Test::Act::Util;
 use Test::More;
 
-Test::Act::Util::get_dbh_ok;
-
 # manually insert a track
 my $sth = $Request{dbh}->prepare_cached("INSERT INTO tracks (conf_id,title,description) VALUES(?,?,?)");
 $sth->execute( 'conf', 'DB', 'Databases' );

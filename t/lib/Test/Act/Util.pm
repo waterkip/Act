@@ -7,9 +7,14 @@ use Act::Event;
 
 use Test::More;
 
-if ($Config->database_test_dsn) {
+if (my $dsn = $Config->database_test_dsn) {
+
+    if ($Config->database_test_host) {
+        $dsn .= ";host=" . $Config->database_test_host;
+    }
+
     $Request{dbh} = DBI->connect(
-        $Config->database_test_dsn,
+        $dsn,
         $Config->database_test_user,
         $Config->database_test_passwd,
         { AutoCommit => 0,

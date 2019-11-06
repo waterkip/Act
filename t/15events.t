@@ -1,4 +1,4 @@
-use Test::More tests => 7;
+use Test::More tests => 8;
 use Act::Event;
 use strict;
 use Test::Lib;

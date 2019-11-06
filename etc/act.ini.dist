@@ -18,6 +18,12 @@ dsn         = dbi:Pg:dbname=$(database_name)
 host        = act-db
 user        = act
 passwd      = act123
+
+test_dsn         = dbi:Pg:dbname=act_test
+test_host        = act-db
+test_user        = act
+test_passwd      = act123
+
 # Disable version checking, defaults to true
 version_check = 0
 

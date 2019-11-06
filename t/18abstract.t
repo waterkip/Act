@@ -36,16 +36,16 @@ my @chunked_tests = (
   [ 'unknown talk', 'talk:9999',         [ { text => '' }, { text => 'talk:9999' } ]                   ],
 );
 
-plan tests => scalar(@user_tests) + scalar(@chunked_tests);
-
 for my $test (@user_tests) {
     my ($name, $input, $expected) = @$test;
     my $got_user = Act::Abstract::expand_user($input);
     is_deeply($got_user, $expected, $name);
 }
-    
+
 for my $test (@chunked_tests) {
     my ($name, $input, $expected) = @$test;
     my $chunked = Act::Abstract::chunked($input);
     is_deeply($chunked, $expected, $name);
 }
+
+done_testing;
