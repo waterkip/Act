@@ -37,7 +37,6 @@ my @conf_simple = qw(
 BEGIN { use_ok('Act::Language') }
 BEGIN { use_ok('Act::Config') }
 
-Act::Config->load_configs(catfile(qw(t act.ini)));
 ok($Config, "configuration loaded");
 
 ## Act::Config globals

@@ -78,7 +78,7 @@ my %private_handlers = (
 );
 
 sub to_app {
-    Act::Config->load_configs();
+    Act::Config::reload_configs();
     my $conference_app = conference_app();
     my $app            = builder {
         enable 'Debug', panels => [split(/\s+/, $ENV{ACT_DEBUG})]
