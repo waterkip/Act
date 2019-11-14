@@ -120,6 +120,13 @@ CREATE TABLE talks (
     level        integer DEFAULT 1,
     lang         text,
 
+    teaser       text,
+    url_video1   text,
+    url_video2   text,
+    url_video3   text,
+    hide_details boolean DEFAULT false NOT NULL,
+    allow_record boolean DEFAULT true  NOT NULL,
+
     FOREIGN KEY( user_id  ) REFERENCES users( user_id )
 );
 CREATE INDEX talks_idx ON talks ( talk_id, conf_id );
