@@ -1,5 +1,5 @@
 #!perl -w
-use Test::More tests => 2;
+use Test::More tests => 3;
 use strict;
 use Test::Lib;
 use Test::Act::Util;   # load the test database

@@ -1,11 +1,10 @@
 #!/usr/bin/env perl
-
-use Test::More tests => 7;
-use Act::Track;
 use strict;
-use lib $ENV{ACTHOME};
+use warnings;
+use Act::Track;
 use Test::Lib;
 use Test::Act::Util;
+use Test::More;
 
 # manually insert a track
 my $sth = $Request{dbh}->prepare_cached("INSERT INTO tracks (conf_id,title,description) VALUES(?,?,?)");
@@ -45,3 +44,5 @@ is_deeply( $track, $track2, "field modified by update" );
 $track->delete;
 
 is( Act::Track->new( track_id => $id ), undef, "Track removed" );
+
+done_testing();

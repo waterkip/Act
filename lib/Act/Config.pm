@@ -185,10 +185,12 @@ my @Optional = qw(
 # salutations
 our $Nb_salutations = 4;
 
-sub load_configs {
-    my $self = shift;
+# load configurations
+load_configs() unless $^C;
 
-    my $home = shift // $ENV{ACTHOME} // $ENV{ACT_HOME};
+sub load_configs
+{
+    my $home = $ENV{ACTHOME} // $ENV{ACT_HOME};
     die "ACT_HOME environment variable isn't set\n" unless $home;
     $GlobalConfig = _init_config($home);
     %ConfConfigs = ();
@@ -414,8 +416,12 @@ sub _get
 sub _load_config
 {
     my ($cfg, $dir) = @_;
+
     for my $file (qw< act local >) {
         my $path = catfile($dir, 'conf', "$file.ini");
+        if (-d $path) {
+            die "$path is a directory, please refer to the documentation\n";
+        }
         if (-e $path) {
             open my $fh, '<:encoding(UTF-8)', $path
                 or die "can't open $path: $!\n";

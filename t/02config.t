@@ -37,7 +37,6 @@ my @conf_simple = qw(
 BEGIN { use_ok('Act::Language') }
 BEGIN { use_ok('Act::Config') }
 
-Act::Config->load_configs(catfile(qw(t act.ini)));
 ok($Config, "configuration loaded");
 
 ## Act::Config globals
@@ -48,11 +47,6 @@ for my $lang (sort keys %Languages) {
 
 ## global config
 _test_config($Config, 'global');
-
-# optional compiled templates
-if ($Config->general_dir_ttc) {
-    ok(-d $Config->general_dir_ttc, "compiled templates directory exists");
-}
 
 # test each conference configuration
 isa_ok($Config->conferences, 'HASH', "general_conferences");

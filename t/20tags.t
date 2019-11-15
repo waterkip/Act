@@ -1,5 +1,5 @@
 use open ':std', ':encoding(utf8)';
-use Test::More tests => 15;
+use Test::More tests => 16;
 
 use utf8;
 

@@ -146,7 +146,7 @@ subtest "Paths without a conference path" => sub {
         my %report  = $driver->request(GET $path);
         is ($report{app},'Plack::App::File',
              "'$path': Root directory may contain non-conference files");
-        is ($report{root}, rel2abs("wwwdocs",$Config->general_root),
+        is ($report{root}, $Config->general_dir_static,
             "'$path': Delivered from the correct directory");
     }
 };
@@ -247,7 +247,7 @@ subtest "Conference files" => sub {
         my %report = $driver->request(GET $path);
         is ($report{app}, 'Plack::App::File',
             "'$path': File to process unchanged");
-        is ($report{root}, $Config->general_root . "/foo/wwwdocs",
+        is ($report{root}, $Config->general_dir_conferences . "/foo/wwwdocs",
             "'$path': Delivered from the correct directory");
     }
 };

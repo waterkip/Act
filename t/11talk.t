@@ -1,4 +1,4 @@
-use Test::More tests => 21;
+use Test::More tests => 22;
 use strict;
 use Test::Lib;
 use Test::Act::Util;

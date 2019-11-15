@@ -39,7 +39,6 @@ has schema => (
 
 # -------- Attribute helpers -------------------------------------------
 sub _build_connector ($self) {
-    Act::Config::load_configs;
     my $Config = $Act::Config::Config;
     my $dsn = $Config->database_dsn;
     if ($Config->database_host) {
@@ -95,7 +94,6 @@ sub BUILD ($self,@) {
 # _check_db_version
 #   Purpose: Make sure that the code understands the database schema.
 sub _check_db_version ($self) {
-    return;
     my $current_version = $self->get_schema_version();
     my $required_version = Act::Database::required_version;
     if ($current_version > $required_version) {
