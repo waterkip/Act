@@ -84,6 +84,8 @@ $cfg->set_always(uris => \%uris)
     ->set_always(database_user => $Config->database_test_user)
     ->set_always(database_passwd => $Config->database_test_passwd)
     ->set_always(database_host => $Config->database_test_host)
+    ->set_always(general_dir_static => 'test_static')
+    ->set_always(general_dir_conferences => 'test_dir_conferences')
     ;
 
 
